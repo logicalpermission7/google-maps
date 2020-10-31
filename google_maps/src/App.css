@@ -44,6 +44,10 @@
   align-items: center;
   
 }
+
 .title{
   text-align: center;
+}
+button{
+ align-self: center;
 }
