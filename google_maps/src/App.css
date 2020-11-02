@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -37,9 +38,8 @@
   }
 }
 .map{
-  size: 50px;
-  padding: 10px;
-  margin: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
   justify-content: space-around;
   align-items: center;
   

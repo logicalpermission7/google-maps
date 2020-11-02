@@ -7,7 +7,7 @@ function Map(){
       
 
 return (
-    <div className='App'>
+    <div className='map'>
 
       <Location/>
 

@@ -34,7 +34,7 @@ function Location(){
 
 
     const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-        <GoogleMap defaultZoom={5} defaultCenter={{ lat: 40.218733, lng: -100.330924  }}>
+        <GoogleMap defaultZoom={4} defaultCenter={{ lat: 40.218733, lng: -100.330924  }}>
         <Marker position={{lat: lat, lng: lon}}/>
         </GoogleMap>));
         
