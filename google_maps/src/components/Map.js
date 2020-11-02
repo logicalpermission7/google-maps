@@ -12,7 +12,7 @@ function Map(){
 
 
 
-  const API_KEY ='AIzaSyCLq9BhYql5hTsKBvo9G0mYObRNGWRtjK';
+  const API_KEY = `${process.env.REACT_APP_API_KEY}`;
     const URL_WITH_KEY = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`
 
     const myLocation = () =>  {
