@@ -3,14 +3,12 @@ import Location from './Location';
 
 function Map(){
 
-    
-
 
       
 
 return (
-    <div>
-    
+    <div className='App'>
+
       <Location/>
 
       

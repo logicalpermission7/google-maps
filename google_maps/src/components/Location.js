@@ -8,8 +8,12 @@ function Location(){
     
     var [lat, setLat] = useState(0);
     var [lon, setLon] = useState(0);
+    
+     
+
     useEffect(() => {
         myLocation();
+    
     }, [])
 
     const API_KEY =`${process.env.REACT_APP_API_KEY}`
@@ -25,17 +29,19 @@ function Location(){
         });
       }
 
+      
+
 
 
     const MapWithAMarker = withScriptjs(withGoogleMap(props =>
         <GoogleMap defaultZoom={5} defaultCenter={{ lat: 40.218733, lng: -100.330924  }}>
-        <Marker position={{lat: {lat}, lng: {lon}}}/>
+        <Marker position={{lat: lat, lng: lon}}/>
         </GoogleMap>));
+        
 
 
     return(
-        <div className='App'>
-        {myLocation.getCurrentPosition}
+        <div>
             <button onClick={myLocation}>Find My Location</button>
           <MapWithAMarker googleMapURL= {URL_WITH_KEY}
                       loadingElement={<div style={{ height: `100%` }} />}
