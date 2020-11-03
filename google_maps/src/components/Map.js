@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {withScriptjs, withGoogleMap,GoogleMap,Marker,} from 'react-google-maps';
+import darkMap from '../mapStyles';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -28,7 +29,7 @@ myLocation()
         });
       }
       const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-        <GoogleMap defaultZoom={4} defaultCenter={{ lat: 40.218733, lng: -100.330924  }}>
+        <GoogleMap defaultZoom={4} options={{styles: darkMap }} defaultCenter={{ lat: 40.218733, lng: -100.330924  }}>
         <Marker position={{lat: lat, lng: lon}}/>
         </GoogleMap>));
         
@@ -37,7 +38,9 @@ myLocation()
 
 return (
     <div className='map'>
-      <button onClick={myLocation}>Find My Location</button>
+      
+        <button onClick={myLocation}>Find My Location</button>
+    
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
                       loadingElement={<div style={{ height: `100%` }} />}
                       containerElement={<div style={{ height: `500px` }} />}

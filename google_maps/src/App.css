@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   
+  
 }
 
 .App-logo {
@@ -38,16 +39,21 @@
   }
 }
 .map{
+
+ margin-left: 15px;
+ margin-right: 15px;
  
-  justify-content: space-around;
-  align-items: center;
   
 }
 
 .title{
   text-align: center;
+  color:rgb(216, 77, 77);
 }
 button{
- align-self: center;
- margin-bottom: 20px;
+  margin-bottom: 20px;
+ 
+  
+  
+ 
 }
