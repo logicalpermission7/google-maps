@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {withScriptjs, withGoogleMap,GoogleMap,Marker,} from 'react-google-maps';
 const dotenv = require('dotenv');
 dotenv.config();
@@ -8,11 +8,14 @@ function Map(){
   var [lon, setLon] = useState(0);
 
 // useffect below will automatically render position by activating myLocation function    
-   
+/*   
+useEffect(() => (
+myLocation()
+), [])
+*/
 
 
-
-  const API_KEY =`${process.env.REACT_APP_API_KEY}`;
+    const API_KEY =`${process.env.REACT_APP_API_KEY}`;
     const URL_WITH_KEY = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`
 
     const myLocation = () =>  {
