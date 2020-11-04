@@ -1,12 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {withScriptjs, withGoogleMap,GoogleMap,Marker,} from 'react-google-maps';
-import darkMap from '../mapStyles';
+import darkMap from '../Darkmap';
+import dayMap from '../Daymap';
 const dotenv = require('dotenv');
 dotenv.config();
 
 function Map(){
   var [lat, setLat] = useState(0);
   var [lon, setLon] = useState(0);
+  var [Map, setMap] = useState(dayMap);
+  
+
+  const night = () => {
+    setMap(Map = darkMap);
+  }
+
+  const day = () => {
+    setMap(dayMap);
+  }
+  
+  
 
 // useffect below will automatically render position by activating myLocation function    
 /*   
@@ -28,8 +41,10 @@ myLocation()
 
         });
       }
+
+    
       const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-        <GoogleMap defaultZoom={4} options={{styles: darkMap }} defaultCenter={{ lat: 40.218733, lng: -100.330924  }}>
+        <GoogleMap defaultZoom={4} options={{styles: Map}} defaultCenter={{ lat: 40.218733, lng: -100.330924  }}>
         <Marker position={{lat: lat, lng: lon}}/>
         </GoogleMap>));
         
@@ -40,6 +55,9 @@ return (
     <div className='map'>
       
         <button onClick={myLocation}>Find My Location</button>
+        <button onClick={day}>Day Map</button>
+        <button onClick={night}>Night Map</button>
+        
     
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
                       loadingElement={<div style={{ height: `100%` }} />}
