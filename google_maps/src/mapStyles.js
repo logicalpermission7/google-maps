@@ -7,76 +7,16 @@ const darkMap = [
                 "invert_lightness": true
             },
             {
-                "saturation": "-9"
+                "saturation": 10
             },
             {
-                "lightness": "0"
+                "lightness": 30
             },
             {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.man_made",
-        "elementType": "all",
-        "stylers": [
-            {
-                "weight": "1.00"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
-            {
-                "weight": "0.49"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "on"
+                "gamma": 0.5
             },
             {
-                "weight": "0.01"
-            },
-            {
-                "lightness": "-7"
-            },
-            {
-                "saturation": "-35"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "labels.text",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "on"
+                "hue": "#435158"
             }
         ]
     }
