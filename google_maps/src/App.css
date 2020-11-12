@@ -59,3 +59,13 @@ button{
   
   
 }
+.visible{
+  visibility: hidden;
+  
+}
+.visible:after{
+  visibility: visible;
+  content: 'by, Elvis Bueno (Software Engineer from Tennessee)';
+  color: teal;
+  
+}

@@ -1,10 +1,13 @@
 import React from 'react';
 
-function Details({weather, temp, icon}){
+function Details({name, region, weather, temp, icon}){
     return(
         <div className='info'>
-            
-                <h3>{weather}<img src={icon} alt=""></img> {" Temp: " + temp + '9\xB0'}</h3>
+                <img src={icon} alt=""></img>
+                <h2>{name} {region}</h2>
+                <h3>{weather} {" Temp: " + temp + '\xB0'}</h3>
+                
+                
                     
         </div>
     )

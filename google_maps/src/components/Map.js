@@ -17,6 +17,14 @@ function Map(){
   const [temp, setTemp] = useState([]);
   const [weather, setWeather] = useState([]);
   const [icon, setIcon] = useState([]);
+  const [direction, setDirection] = useState([])
+ 
+  var [info, setInfo] = useState(false);
+
+  const developerInfo = () => {
+    setInfo(!info)
+  }
+  
   
 
   const night = () => {
@@ -31,6 +39,7 @@ function Map(){
 //UseEffect will automatically get weather from API .
   
 useEffect(() => {
+  myLocation();
   getWeather();
 
 }, [])
@@ -52,7 +61,6 @@ useEffect(() => {
         });
       }
 
-      
 
       const WEATHER_API_KEY = `${process.env.REACT_APP_WEATHER_KEY}`;
       const WEATHER_URL_AND_KEY = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${lat},${lon}`;
@@ -64,9 +72,10 @@ useEffect(() => {
         setRegion(w_data.location.region);
         setCountry(w_data.location.country);
         setFeels(w_data.current.feelslike_f);
-        setTemp(w_data.current.temp_f);
+        setTemp(w_data.current.temp_f.toFixed(1));
         setWeather(w_data.current.condition.text);
         setIcon(w_data.current.condition.icon);
+        setDirection(w_data.current.wind_dir);
         console.log(w_data);
       }
 
@@ -84,9 +93,18 @@ useEffect(() => {
 
 return (
     <div className='map'>
-      <h1 className='title'>Hello World</h1>
-      <Details name={name} region={region} weather={weather} country={country} temp={temp} feels={feels} icon={icon}/>
-        <button onClick={myLocation}>Find My Location</button>
+      <h1 className='title'>Hello World Weather</h1>
+      <Details name={name} 
+      region={region} 
+      weather={weather} 
+      country={country} 
+      temp={temp}
+      feels={feels} 
+      icon={icon} 
+      developer={info}
+      direction={direction}/>
+      <p className={info ? 'visible' : 'visible:after'}>{info}</p>
+        <button onClick={developerInfo}>Developer Info</button>
         <button onClick={day}>Day Map</button>
         <button onClick={night}>Night Map</button>
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
