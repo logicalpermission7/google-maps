@@ -39,7 +39,6 @@ function Map(){
 //UseEffect will automatically get weather from API .
   
 useEffect(() => {
-  myLocation();
   getWeather();
 
 }, [])
@@ -81,7 +80,7 @@ useEffect(() => {
 
     // generates google map
       const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-        <GoogleMap defaultZoom={4} 
+        <GoogleMap defaultZoom={3.7} 
         options={{styles: Map}} 
         defaultCenter={{ lat: 38.7605, lng: -98.7818  }}>
         <Marker position={{lat: lat, lng: lon}}/>
@@ -107,6 +106,7 @@ return (
         <button onClick={developerInfo}>Developer Info</button>
         <button onClick={day}>Day Map</button>
         <button onClick={night}>Night Map</button>
+        <button onClick={myLocation}>Location</button>
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
                       loadingElement={<div style={{ height: `100%` }} />}
                       containerElement={<div style={{ height: `500px` }} />}
