@@ -16,6 +16,7 @@ function Map(){
   const [feels, setFeels] = useState([]);
   const [temp, setTemp] = useState([]);
   const [weather, setWeather] = useState([]);
+  const [icon, setIcon] = useState([]);
   
 
   const night = () => {
@@ -65,6 +66,7 @@ useEffect(() => {
         setFeels(w_data.current.feelslike_f);
         setTemp(w_data.current.temp_f);
         setWeather(w_data.current.condition.text);
+        setIcon(w_data.current.condition.icon);
         console.log(w_data);
       }
 
@@ -82,15 +84,11 @@ useEffect(() => {
 
 return (
     <div className='map'>
-      
+      <Details name={name} region={region} weather={weather} country={country} temp={temp} feels={feels} icon={icon}/>
         <button onClick={myLocation}>Find My Location</button>
         <button onClick={day}>Day Map</button>
         <button onClick={night}>Night Map</button>
-        <Details name={name} region={region} weather={weather} country={country} temp={temp} feels={feels}/>
-        
-      
-    
-
+        <h1 className='title'>Hello World</h1>
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
                       loadingElement={<div style={{ height: `100%` }} />}
                       containerElement={<div style={{ height: `500px` }} />}
