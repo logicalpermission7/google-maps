@@ -13,11 +13,11 @@ function Map(){
   const [name, setName] = useState([]);
   const [region, setRegion] = useState([]);
   const [country, setCountry] = useState([]);
-  const [feels, setFeels] = useState([]);
   const [temp, setTemp] = useState([]);
   const [weather, setWeather] = useState([]);
-  const [icon, setIcon] = useState([]);
-  const [direction, setDirection] = useState([])
+  const [feels, setFeels] =useState([]);
+  const [wind, setWind] = useState([]);
+  const [windSpeed, setWindSpeed] = useState([]);
  
   var [info, setInfo] = useState(false);
 
@@ -39,7 +39,8 @@ function Map(){
 //UseEffect will automatically get weather from API .
   
 useEffect(() => {
-  getWeather();
+  myLocation();
+  
 
 }, [])
 
@@ -54,6 +55,7 @@ useEffect(() => {
         navigator.geolocation.getCurrentPosition(function(position) {
           setLat(lat = position.coords.latitude);
           setLon(lon = position.coords.longitude);
+          getWeather();
           console.log(lat);
           console.log(lon);
 
@@ -70,11 +72,11 @@ useEffect(() => {
         setName(w_data.location.name);
         setRegion(w_data.location.region);
         setCountry(w_data.location.country);
-        setFeels(w_data.current.feelslike_f);
         setTemp(w_data.current.temp_f.toFixed(1));
         setWeather(w_data.current.condition.text);
-        setIcon(w_data.current.condition.icon);
-        setDirection(w_data.current.wind_dir);
+        setFeels(w_data.current.feelslike_f);
+        setWind(w_data.current.wind_dir);
+        setWindSpeed(w_data.current.wind_mph);
         console.log(w_data);
       }
 
@@ -93,24 +95,29 @@ useEffect(() => {
 return (
     <div className='map'>
       <h1 className='title'>Hello World Weather</h1>
+      
+        <button onClick={developerInfo}>Developer</button>
+        <button onClick={day}>Day Map</button>
+        <button onClick={night}>Night Map</button>
+        <button onClick={myLocation}>Weather</button>
+      
+        <p className={info ? 'visible' : 'visible:after'}>{info}</p>
+      
       <Details name={name} 
       region={region} 
       weather={weather} 
       country={country} 
       temp={temp}
-      feels={feels} 
-      icon={icon} 
-      developer={info}
-      direction={direction}/>
-      <p className={info ? 'visible' : 'visible:after'}>{info}</p>
-        <button onClick={developerInfo}>Developer Info</button>
-        <button onClick={day}>Day Map</button>
-        <button onClick={night}>Night Map</button>
-        <button onClick={myLocation}>Location</button>
+      feels={feels}
+      wind={wind}
+      windSpeed={windSpeed}
+      developer={info}/>
+      
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
                       loadingElement={<div style={{ height: `100%` }} />}
                       containerElement={<div style={{ height: `500px` }} />}
-                      mapElement={<div style={{ height: `100%` }} />}/>  
+                      mapElement={<div style={{ height: `100%` }} />}/>
+      
     </div>
   );
 }

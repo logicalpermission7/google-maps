@@ -1,18 +1,8 @@
 .App {
+  
   text-align: center;
+  font-family: Courier New
   
-  
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -26,36 +16,28 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .map{
-
- margin-left: 15px;
- margin-right: 15px;
+  text-align: center;
+  margin: auto;
  
-  
 }
 
 .title{
   text-align: center;
   color: white;
 }
-button{
-  margin-bottom: 20px;
- 
-}
+
 .info{
-  color: teal;
+  color: rgb(255, 255, 255);
+  border: solid;
+  border-width: thin;
+  background-color: rgba(23, 64, 88, 0.199);
+  width: 300px;
+  height: 250px;  
+  padding: 50px;
+  padding-top: 2px;
+  margin: auto;
+  margin-bottom: 15px;
   
   
 }
@@ -65,7 +47,13 @@ button{
 }
 .visible:after{
   visibility: visible;
-  content: 'by, Elvis Bueno (Software Engineer from Tennessee)';
-  color: teal;
+  content: 'by, Elvis Bueno a software engineer from Tennessee. "Software and cathedrals are much the same – first we build them, then we pray."';
+  color: rgb(255, 255, 255);
+  margin: auto;
+  font-size: small;
   
+}
+
+button{
+  margin:5px;
 }
