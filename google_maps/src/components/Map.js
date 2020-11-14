@@ -3,6 +3,7 @@ import {withScriptjs, withGoogleMap,GoogleMap,Marker,} from 'react-google-maps';
 import darkMap from '../Darkmap';
 import dayMap from '../Daymap';
 import Details from './Details';
+import logo from '../IMG_1037.png';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -14,7 +15,6 @@ function Map(){
   const [region, setRegion] = useState([]);
   const [country, setCountry] = useState([]);
   const [temp, setTemp] = useState([]);
-  const [weather, setWeather] = useState([]);
   const [feels, setFeels] =useState([]);
   const [wind, setWind] = useState([]);
   const [windSpeed, setWindSpeed] = useState([]);
@@ -72,9 +72,8 @@ useEffect(() => {
         setName(w_data.location.name);
         setRegion(w_data.location.region);
         setCountry(w_data.location.country);
-        setTemp(w_data.current.temp_f.toFixed(1));
-        setWeather(w_data.current.condition.text);
-        setFeels(w_data.current.feelslike_f);
+        setTemp(w_data.current.temp_f.toFixed(0));
+        setFeels(w_data.current.feelslike_f.toFixed(0));
         setWind(w_data.current.wind_dir);
         setWindSpeed(w_data.current.wind_mph);
         console.log(w_data);
@@ -94,6 +93,7 @@ useEffect(() => {
 
 return (
     <div className='map'>
+      
       <h1 className='title'>Hello World Weather</h1>
       
         <button onClick={developerInfo}>Developer</button>
@@ -102,10 +102,11 @@ return (
         <button onClick={myLocation}>Weather</button>
       
         <p className={info ? 'visible' : 'visible:after'}>{info}</p>
+        <img alt='' src={logo}></img>
+    
       
       <Details name={name} 
       region={region} 
-      weather={weather} 
       country={country} 
       temp={temp}
       feels={feels}
