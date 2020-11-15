@@ -28,10 +28,11 @@
 }
 
 .info{
-  color: rgb(255, 255, 255);
+  color: white;
   border: solid;
   border-width: thin;
-  background-color: rgba(23, 64, 88, 0.199);
+  border-color: rgb(44, 44, 44);
+  background-color: rgba(33, 34, 34, 0.527);
   padding-top: 2px;
   margin: auto;
   margin-bottom: 15px;
@@ -45,7 +46,7 @@
 .visible:after{
   visibility: visible;
   content: 'by, Elvis Bueno a software engineer from Tennessee. "Software and cathedrals are much the same – first we build them, then we pray."';
-  color: rgb(255, 255, 255);
+  color: white;
   margin: auto;
   font-size: small;
   

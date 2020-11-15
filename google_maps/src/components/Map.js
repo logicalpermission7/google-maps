@@ -3,7 +3,7 @@ import {withScriptjs, withGoogleMap,GoogleMap,Marker,} from 'react-google-maps';
 import darkMap from '../Darkmap';
 import dayMap from '../Daymap';
 import Details from './Details';
-import logo from '../IMG_1037.png';
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -19,12 +19,7 @@ function Map(){
   const [wind, setWind] = useState([]);
   const [windSpeed, setWindSpeed] = useState([]);
  
-  var [info, setInfo] = useState(false);
-
-  const developerInfo = () => {
-    setInfo(!info)
-  }
-  
+ 
   
 
   const night = () => {
@@ -96,13 +91,13 @@ return (
       
       <h1 className='title'>Hello World Weather</h1>
       
-        <button onClick={developerInfo}>Developer</button>
+      
         <button onClick={day}>Day Map</button>
         <button onClick={night}>Night Map</button>
         <button onClick={myLocation}>Weather</button>
       
-        <p className={info ? 'visible' : 'visible:after'}>{info}</p>
-        <img alt='' src={logo}></img>
+        
+        
     
       
       <Details name={name} 
@@ -112,7 +107,7 @@ return (
       feels={feels}
       wind={wind}
       windSpeed={windSpeed}
-      developer={info}/>
+      />
       
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
                       loadingElement={<div style={{ height: `100%` }} />}

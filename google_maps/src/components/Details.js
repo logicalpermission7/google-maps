@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+
 
 
 function Details({name, region, temp, feels, wind, windSpeed}){
+
+var [info, setInfo] = useState(false);
+
+const developerInfo = () => {
+    setInfo(!info)
+  }
+
+
+
+
+
     return(
         <div className='info'>
-            
+            <button onClick={developerInfo}>Developer</button>
+            <p className={info ? 'visible' : 'visible:after'}>{info}</p>
                 <h2>{name} {region}</h2>
                 <h3>{"temperature: " + temp + '\xB0'}</h3>
                 <h3>{"feels like: " + feels + '\xB0'}</h3>
