@@ -17,7 +17,7 @@ const developerInfo = () => {
 
     return(
         <div className='info'>
-            <p onClick={developerInfo}>-Click Here and Get Developer Info-</p>
+            <p onClick={developerInfo}>-Click for Developer Info Below-</p>
             <p className={info ? 'visible' : 'visible:after'}>{info}</p>
                 <h2>{name} {region}</h2>
                 <h3>{"temperature: " + temp + '\xB0'}</h3>
