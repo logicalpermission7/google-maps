@@ -94,7 +94,7 @@ return (
       
         <button onClick={day}>Day Map</button>
         <button onClick={night}>Night Map</button>
-        <button onClick={myLocation}>Weather</button>
+        <button onClick={myLocation}>My Weather</button>
       
         
         
