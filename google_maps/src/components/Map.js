@@ -35,9 +35,7 @@ function Map(){
   
 useEffect(() => {
   myLocation();
-  
-
-}, [])
+  }, [])
 
 
 
@@ -46,20 +44,19 @@ useEffect(() => {
     const MAP_API_KEY =`${process.env.REACT_APP_API_KEY}`;
     const URL_WITH_KEY = `https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&v=3.exp&libraries=geometry,drawing,places`
 
+  // Weather API_KEY and URL  
+    const WEATHER_API_KEY = `${process.env.REACT_APP_WEATHER_KEY}`;
+    const WEATHER_URL_AND_KEY = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${lat},${lon}`;
+
     const myLocation = () =>  {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          setLat(lat = position.coords.latitude);
-          setLon(lon = position.coords.longitude);
-          getWeather();
-          console.log(lat);
-          console.log(lon);
-
-        });
-      }
-
-
-      const WEATHER_API_KEY = `${process.env.REACT_APP_WEATHER_KEY}`;
-      const WEATHER_URL_AND_KEY = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${lat},${lon}`;
+      navigator.geolocation.getCurrentPosition(function(position) {
+        setLat(lat = position.coords.latitude);
+        setLon(lon = position.coords.longitude);
+        getWeather();
+        console.log(lat);
+        console.log(lon);
+      });
+    }
 
       const getWeather = async () => {
         const w_response = await fetch(WEATHER_URL_AND_KEY);
@@ -76,29 +73,21 @@ useEffect(() => {
 
     // generates google map
       const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-        <GoogleMap defaultZoom={3.7} 
-        options={{styles: Map}} 
-        defaultCenter={{ lat: 38.7605, lng: -98.7818  }}>
-        <Marker position={{lat: lat, lng: lon}}/>
-    
-        </GoogleMap>));
+      <GoogleMap defaultZoom={3.7} 
+      options={{styles: Map}} 
+      defaultCenter={{ lat: 38.7605, lng: -98.7818  }}>
+      <Marker position={{lat: lat, lng: lon}}/>
+      </GoogleMap>));
         
 
       
 
 return (
     <div className='map'>
-      
       <h1 className='title'>Hello World Weather</h1>
-      
-      
-        <button onClick={day}>Day Map</button>
-        <button onClick={night}>Night Map</button>
-        <button onClick={myLocation}>My Weather</button>
-      
-        
-        
-    
+      <button onClick={day}>Day Map</button>
+      <button onClick={night}>Night Map</button>
+      <button onClick={myLocation}>My Weather</button>
       
       <Details name={name} 
       region={region} 
@@ -110,11 +99,10 @@ return (
       />
       
       <MapWithAMarker googleMapURL= {URL_WITH_KEY}
-                      loadingElement={<div style={{ height: `100%` }} />}
-                      containerElement={<div style={{ height: `500px` }} />}
-                      mapElement={<div style={{ height: `100%` }} />}/>
-      
-    </div>
+      loadingElement={<div style={{ height: `100%` }} />}
+      containerElement={<div style={{ height: `500px` }} />}
+      mapElement={<div style={{ height: `100%` }} />}/>
+      </div>
   );
 }
 
